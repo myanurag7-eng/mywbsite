@@ -664,7 +664,7 @@
                             Contact Me
                         </a>
 
-                        <a href="#" class="btn" id="cvBtn">
+                        <a href="download.pdf" class="btn" id="cvBtn">
                             Download CV
                         </a>
 
@@ -1568,15 +1568,19 @@
         ========================== */
 
         document.getElementById("cvBtn")
-            .addEventListener("click", function (event) {
+    .addEventListener("click", function (event) {
 
-                event.preventDefault();
+        event.preventDefault();
 
-                alert(
-                    "Add your CV PDF file and connect it to this button."
-                );
+        const pdf = document.createElement("a");
+        pdf.href = "download.pdf";
+        pdf.download = "download.pdf";
 
-            });
+        document.body.appendChild(pdf);
+        pdf.click();
+        document.body.removeChild(pdf);
+
+    });
 
     </script>
 
