@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Anurag Gupta - C# .NET Developer Portfolio">
+
+    <title>Anurag Gupta | C# .NET Developer</title>
+
+    <style>
+        /* =========================
+           RESET & GLOBAL
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #080b14;
+            --bg-light: #0e1422;
+            --card: #111827;
+            --primary: #00d4ff;
+            --secondary: #7c3aed;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --gradient: linear-gradient(135deg, #00d4ff, #7c3aed);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 11, 20, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #dbeafe;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(124,58,237,0.2), transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(0,212,255,0.12), transparent 30%);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-small {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .typing {
+            color: var(--primary);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 650px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.15);
+        }
+
+        .profile-box {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--gradient);
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 80px rgba(0,212,255,0.2);
+        }
+
+        .profile-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 10px;
+        }
+
+        .info-item strong {
+            color: var(--primary);
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .skill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .skill-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .skill-head span:last-child {
+            color: var(--primary);
+        }
+
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+            height: 100%;
+            background: var(--gradient);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0,212,255,0.5);
+        }
+
+        .project-top {
+            height: 160px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+        .timeline {
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .timeline-content {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            word-break: break-word;
+        }
+
+        form {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            background: #0b1120;
+            color: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary);
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        footer span {
+            color: var(--primary);
+        }
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+        #topBtn {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            cursor: pointer;
+            display: none;
+            font-size: 20px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 900px) {
+
+            .hero,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-box {
+                order: -1;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            section {
+                padding: 70px 0;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-light);
+                flex-direction: column;
+                align-items: center;
+                padding: 25px;
+                display: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile {
+                width: 230px;
+                height: 230px;
+            }
+
+            .profile-inner {
+                font-size: 70px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header>
+        <div class="container">
+            <nav>
+
+                <a href="#home" class="logo">
+                    Anurag<span>.</span>
+                </a>
+
+                <div class="menu-btn" id="menuBtn">
+                    ☰
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+    <section id="home">
+
+        <div class="container">
+
+            <div class="hero">
+
+                <div>
+
+                    <p class="hero-small">
+                        Hello, I'm
+                    </p>
+
+                    <h1>
+                        Anurag <span>Gupta</span>
+                    </h1>
+
+                    <h2>
+                        I'm a
+                        <span class="typing" id="typing"></span>
+                    </h2>
+
+                    <p>
+                        BCA student and aspiring software developer
+                        focused on C#, .NET, SQL Server and modern
+                        web development. I love building practical,
+                        responsive and user-friendly applications.
+                    </p>
+
+                    <div class="buttons">
+
+                        <a href="#projects" class="btn btn-primary">
+                            View Projects
+                        </a>
+
+                        <a href="#contact" class="btn">
+                            Contact Me
+                        </a>
+
+                        <a href="#" class="btn" id="cvBtn">
+                            Download CV
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-box">
+
+                    <div class="profile">
+
+                        <div class="profile-inner">
+                            AG
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>About <span>Me</span></h2>
+
+                <p>
+                    Get to know me and my development journey
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <h3>
+                        C# .NET Developer
+                    </h3>
+
+                    <p>
+                        I'm Anurag Gupta, a BCA student passionate
+                        about software development and web technologies.
+                    </p>
+
+                    <p>
+                        My current learning path focuses on C#,
+                        .NET, ASP.NET Core, SQL Server, HTML, CSS
+                        and JavaScript.
+                    </p>
+
+                    <p>
+                        My goal is to become a professional software
+                        engineer capable of developing complete
+                        real-world applications.
+                    </p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-item">
+                        <strong>Name:</strong>
+                        Anurag Gupta
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Education:</strong>
+                        BCA – 2nd Year
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Experience:</strong>
+                        Fresher
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Focus:</strong>
+                        C# / .NET / SQL Server
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>My <span>Skills</span></h2>
+
+                <p>
+                    Technologies I'm learning and working with
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill">
+
+                    <div class="skill-head">
+                        <span>HTML5</span>
+                        <span>90%</span>
+                    </div>
+
+                    <div class="progress">
+                        <span data-width="90%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-head">
+                        <span>CSS3</span>
+                        <span>85%</span>
+                    </div>
+
+                    <div class="progress">
+                        <span data-width="85%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-head">
+                        <span>JavaScript</span>
+                        <span>75%</span>
+                    </div>
+
+                    <div class="progress">
+                        <span data-width="75%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-head">
+                        <span>C#</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="progress">
+                        <span data-width="70%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-head">
+                        <span>ASP.NET / .NET</span>
+                        <span>65%</span>
+                    </div>
+
+                    <div class="progress">
+                        <span data-width="65%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-head">
+                        <span>Microsoft SQL Server</span>
+                        <span>75%</span>
+                    </div>
+
+                    <div class="progress">
+                        <span data-width="75%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>My <span>Projects</span></h2>
+
+                <p>
+                    Some projects I am building and learning from
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+                <div class="project">
+
+                    <div class="project-top">
+                        🛒
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Shop Billing System
+                        </h3>
+
+                        <p>
+                            A billing and inventory management
+                            application for managing shop products,
+                            prices and customer bills.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">.NET</span>
+                            <span class="tag">SQL Server</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-top">
+                        🌐
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Developer Portfolio
+                        </h3>
+
+                        <p>
+                            Responsive personal portfolio website
+                            showcasing skills, projects, education
+                            and contact information.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-top">
+                        📅
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            JavaScript Calendar
+                        </h3>
+
+                        <p>
+                            Interactive calendar application built
+                            with JavaScript for displaying dates,
+                            months and navigation.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-top">
+                        🎮
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Car Driving Game
+                        </h3>
+
+                        <p>
+                            Browser-based mini game created to
+                            practice JavaScript events, logic and
+                            animations.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">HTML</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-top">
+                        🗄️
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Student Database
+                        </h3>
+
+                        <p>
+                            Database project for practicing SQL
+                            queries, tables, relationships and
+                            CRUD operations.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Database</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-top">
+                        💻
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Full Stack Web App
+                        </h3>
+
+                        <p>
+                            Planned full-stack application using
+                            ASP.NET Core, C#, JavaScript and
+                            Microsoft SQL Server.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">ASP.NET Core</span>
+                            <span class="tag">SQL Server</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+    <section id="education">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Education & <span>Journey</span></h2>
+
+                <p>
+                    My learning journey
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            Bachelor of Computer Applications
+                        </h3>
+
+                        <p>
+                            Makhanlal Chaturvedi National University
+                            of Journalism and Communication
+                        </p>
+
+                        <p>
+                            Currently in 2nd Year
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <p>
+                            HTML5, CSS3, JavaScript and responsive
+                            web development.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            C# & .NET Development
+                        </h3>
+
+                        <p>
+                            Learning C#, .NET, ASP.NET Core,
+                            APIs and backend development.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            Database Development
+                        </h3>
+
+                        <p>
+                            Learning Microsoft SQL Server,
+                            SQL queries, database design and
+                            CRUD operations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Contact <span>Me</span></h2>
+
+                <p>
+                    Let's connect and build something great
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-info">
+
+                    <div class="contact-card">
+
+                        <h3>Email</h3>
+
+                        <p>
+                            myanuraggupta07@gmail.com
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <h3>Phone</h3>
+
+                        <p>
+                            +91 9580693764
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <h3>Location</h3>
+
+                        <p>
+                            Ambedkar Nagar, Uttar Pradesh, India
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <h3>Career</h3>
+
+                        <p>
+                            C# / .NET Developer
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="contactForm">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Your Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <p>
+            © <span id="year"></span>
+            Anurag Gupta.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Built with HTML5, CSS3 & JavaScript
+        </p>
+
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+    <button id="topBtn">
+        ↑
+    </button>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* Close mobile menu after click */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* =========================
+           TYPING EFFECT
+        ========================== */
+
+        const typingElement =
+            document.getElementById("typing");
+
+        const roles = [
+            "C# Developer",
+            ".NET Developer",
+            "Web Developer",
+            "Software Engineer"
+        ];
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+
+        function typingEffect() {
+
+            const currentRole = roles[roleIndex];
+
+            if (!deleting) {
+
+                typingElement.textContent =
+                    currentRole.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === currentRole.length) {
+
+                    deleting = true;
+
+                    setTimeout(typingEffect, 1500);
+
+                    return;
+                }
+
+            } else {
+
+                typingElement.textContent =
+                    currentRole.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    roleIndex++;
+
+                    if (roleIndex >= roles.length) {
+                        roleIndex = 0;
+                    }
+
+                }
+
+            }
+
+            setTimeout(
+                typingEffect,
+                deleting ? 60 : 100
+            );
+        }
+
+        typingEffect();
+
+
+        /* =========================
+           SKILL ANIMATION
+        ========================== */
+
+        const progressBars =
+            document.querySelectorAll(".progress span");
+
+
+        function animateSkills() {
+
+            progressBars.forEach(bar => {
+
+                const width =
+                    bar.getAttribute("data-width");
+
+                bar.style.width = width;
+
+            });
+
+        }
+
+
+        const skillsSection =
+            document.getElementById("skills");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    if (entries[0].isIntersecting) {
+
+                        animateSkills();
+
+                    }
+
+                },
+                {
+                    threshold: 0.3
+                }
+
+            );
+
+        observer.observe(skillsSection);
+
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value;
+
+                alert(
+                    "Thank you " +
+                    name +
+                    "! Your message has been received."
+                );
+
+                contactForm.reset();
+
+            }
+        );
+
+
+        /* =========================
+           CURRENT YEAR
+        ========================== */
+
+        document.getElementById("year")
+            .textContent = new Date().getFullYear();
+
+
+        /* =========================
+           BACK TO TOP
+        ========================== */
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 400) {
+
+                topBtn.style.display = "block";
+
+            } else {
+
+                topBtn.style.display = "none";
+
+            }
+
+        });
+
+
+        topBtn.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* =========================
+           CV BUTTON
+        ========================== */
+
+        document.getElementById("cvBtn")
+            .addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                alert(
+                    "Add your CV PDF file and connect it to this button."
+                );
+
+            });
+
+    </script>
+
+</body>
+</html>
